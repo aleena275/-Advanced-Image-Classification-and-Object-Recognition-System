@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Classification & Object Recognition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>🧠 Image Classification &amp; Object Recognition</h1>
+    <p>Upload an image to classify it using a CNN / transfer learning model</p>
+  </header>
+
+  <main class="container">
+    <section class="upload-panel">
+      <div id="dropZone" class="drop-zone">
+        <input type="file" id="fileInput" accept="image/*" hidden />
+        <p id="dropText">📤 Click or drag an image here</p>
+        <img id="preview" class="preview" hidden />
+      </div>
+
+      <button id="classifyBtn" class="btn" disabled>Classify Image</button>
+
+      <div id="loading" class="loading" hidden>
+        <div class="spinner"></div>
+        <span>Running inference...</span>
+      </div>
+
+      <p id="errorMsg" class="error" hidden></p>
+    </section>
+
+    <section class="results-panel" id="resultsPanel" hidden>
+      <h2>Results</h2>
+
+      <div class="results-grid">
+        <div class="result-card">
+          <h3>Top Prediction</h3>
+          <p id="topPrediction" class="top-prediction">-</p>
+          <p id="inferenceTime" class="inference-time"></p>
+        </div>
+
+        <div class="result-card">
+          <h3>Grad-CAM Explanation</h3>
+          <img id="gradcamImg" class="gradcam-img" alt="Grad-CAM heatmap overlay" />
+        </div>
+      </div>
+
+      <div class="result-card">
+        <h3>Top-5 Predictions</h3>
+        <ul id="topkList" class="topk-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Advanced Image Classification and Object Recognition System &middot; CNN + Transfer Learning</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
